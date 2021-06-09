@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -13,6 +15,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -57,6 +61,18 @@ public class MainActivity extends AppCompatActivity {
 
         final Button buttonA = (Button) findViewById(R.id.buttonA);
         final Button buttonB = (Button) findViewById(R.id.buttonB);
+
+        final TextView textViewCredit = (TextView) findViewById(R.id.textViewCredit);
+
+        textViewCredit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentToOsuProfile = new Intent(Intent.ACTION_VIEW, Uri.parse("https://osu.ppy.sh/users/3054130"));
+                startActivity(intentToOsuProfile);
+                Intent intentToGitHub = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/pethrol"));
+                startActivity(intentToGitHub);
+            }
+        });
 
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
