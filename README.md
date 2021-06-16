@@ -8,4 +8,4 @@ This is the application made for playing osu!. It is sending messages via IPV4 i
 
 
 
-Thanks Wrona#2741 for providing the icon.
+Thanks to Wrona#2741 for providing the icon.
