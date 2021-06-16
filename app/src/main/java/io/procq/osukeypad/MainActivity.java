@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         View mainView = findViewById(R.id.mainScreen);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        final Button button = (Button) findViewById(R.id.btnConnect);
+        final Button buttonSetIp = (Button) findViewById(R.id.btnConnect);
         final Button buttonSave = (Button) findViewById(R.id.btnSave);
         final Button buttonLoad = (Button) findViewById(R.id.btnLoad);
         final EditText editText = (EditText) findViewById(R.id.editTextIp);
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                     ip = editText.getText().toString();
                     fos.write(ip.getBytes());
 
-                    Toast.makeText(getApplicationContext(), ip, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Address "+ip+" was saved", Toast.LENGTH_SHORT).show();
 
                 }catch (Exception e) {
                     e.printStackTrace();
@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        button.setOnClickListener(new View.OnClickListener() {
+        buttonSetIp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -124,7 +124,8 @@ public class MainActivity extends AppCompatActivity {
 
                 try {
                     InetAddress.getByName(ip);
-                    Toast.makeText(getApplicationContext(), "Ip correctly saved.", Toast.LENGTH_SHORT).show();
+                    DoSend(-1);
+                    Toast.makeText(getApplicationContext(), "Ip correctly entered. Handshake was send to server", Toast.LENGTH_SHORT).show();
                 }
                 catch (Exception e) {
                     Toast.makeText(getApplicationContext(), "Ip you entered is wrong.", Toast.LENGTH_SHORT).show();
